@@ -1,5 +1,6 @@
 require("lazy").setup({
     'nvim-lua/plenary.nvim',
+
     {
         'nvim-telescope/telescope.nvim', version = '0.1.4',
         dependencies = { {'nvim-lua/plenary.nvim'} }
@@ -24,6 +25,9 @@ require("lazy").setup({
     'laytan/cloak.nvim',
     'mfussenegger/nvim-dap',
     'simrat39/rust-tools.nvim',
+
+    'sidebar-nvim/sidebar.nvim',
+    'airblade/vim-gitgutter',
 
     {
         'linrongbin16/gitlinker.nvim',
