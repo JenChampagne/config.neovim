@@ -21,6 +21,15 @@ require("lazy").setup({
     },
     'mbbill/undotree',
     'tpope/vim-fugitive',
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+        },
+    },
     'nvim-treesitter/nvim-treesitter-context',
     'laytan/cloak.nvim',
     'mfussenegger/nvim-dap',
