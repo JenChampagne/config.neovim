@@ -2,8 +2,9 @@ require("lazy").setup({
     'nvim-lua/plenary.nvim',
 
     {
-        'nvim-telescope/telescope.nvim', version = '0.1.4',
-        dependencies = { {'nvim-lua/plenary.nvim'} }
+        'nvim-telescope/telescope.nvim',
+        version = '0.1.5',
+        dependencies = { 'nvim-lua/plenary.nvim' }
     },
     {'mg979/vim-visual-multi', branch = 'master'},
 
