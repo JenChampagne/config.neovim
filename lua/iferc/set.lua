@@ -1,6 +1,9 @@
+-- Show the current line number in a gutter.
 vim.opt.nu = true
+-- Show relative line numbers for every line other than the current line.
 vim.opt.relativenumber = true
 
+-- Set indentation to 4 spaces.
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -8,10 +11,14 @@ vim.opt.expandtab = true
 
 vim.opt.smartindent = true
 
+-- Keep word wrapping off by default.
+-- To toggle on demand, run the command `:set wrap!`. 
 vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
+
+-- Keep undo steps long term across re-opening neovim.
 vim.opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
 vim.opt.undofile = true
 
@@ -25,6 +32,9 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
+
+-- Adds column colorbars as indicators that the line is getting too long.
+vim.opt.colorcolumn = "80,120"
 
 -- Make copying also copy into system clipboard.
 -- Helps get up and running when new to neovim, but is not an ideal solution.
