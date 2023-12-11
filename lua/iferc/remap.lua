@@ -14,8 +14,15 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+-- vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+-- vim.keymap.set("n", "<leader>Y", [["+Y]])
+-- set system clipboard
+vim.keymap.set('n','<leader>yy','"+yy')
+vim.keymap.set('n','<leader>y','"+y') -- the issue with this is there is a delay because of other binds like <leader>yy
+vim.keymap.set('n','<leader>Y','"+Y')
+vim.keymap.set('x','<leader>y','"+y')
+vim.keymap.set('x','<leader>Y','"+Y')
+vim.keymap.set('n','<leader>p','"+p') -- the issue with this is there is a delay because of other binds like <leader>pv
 
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 

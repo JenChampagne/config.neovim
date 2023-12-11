@@ -26,5 +26,11 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "80"
+-- Make copying also copy into system clipboard.
+-- Helps get up and running when new to neovim, but is not an ideal solution.
+-- Ideally, we may want a key that can copy the yank buffer into the clipboard,
+-- instead of putting all yanks into the clipboard.
+-- "unnamed" => Windows,MacOS
+-- "unnamedplus" => "Linux"
+--vim.opt.clipboard = "unnamed,unnamedplus"
 
