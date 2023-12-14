@@ -22,6 +22,17 @@ lsp_zero.on_attach(function(client, bufnr)
     end, opts)
 end)
 
+-- Automatic formatting on save for filetypes that have a language server.
+-- To write the file bypassing formatting, run ':noautocmd w' instead of ':w'.
+lsp_zero.format_on_save({
+    format_opts = { async = false, timeout_ms = 4000 },
+    servers = {
+        ['lua_ls'] = { 'lua' },
+        ['tsserver'] = { 'javascript', 'typescript' },
+        ['rust_analyzer'] = { 'rust' },
+    }
+})
+
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {'tsserver', 'rust_analyzer', 'eslint'},
