@@ -73,7 +73,7 @@ require("lazy").setup({
             require("telescope").load_extension("textcase")
         end,
         keys = {
-            { "ga.", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "v" }, desc = "Telescope" },
+            { "<leader>cc", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "v" }, desc = "Telescope" },
         },
     },
 
