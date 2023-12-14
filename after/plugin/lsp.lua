@@ -1,5 +1,9 @@
 local lsp_zero = require('lsp-zero')
 
+-- local function allow_format(servers)
+--     return function(client) return vim.tbl_contains(servers, client.name) end
+-- end
+
 lsp_zero.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
@@ -18,6 +22,7 @@ lsp_zero.on_attach(function(client, bufnr)
         vim.lsp.buf.format({
             async = false,
             timeout_ms = 4000,
+            --filter = allow_format({ 'lua_ls', 'rust_analyzer' })
         })
     end, opts)
 end)
