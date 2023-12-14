@@ -16,7 +16,7 @@ vim.opt.list = true
 vim.opt.listchars = "tab:»·,trail:·,nbsp:·"
 
 -- Keep word wrapping off by default.
--- To toggle on demand, run the command `:set wrap!`. 
+-- To toggle on demand, run the command `:set wrap!`.
 vim.opt.wrap = false
 
 vim.opt.swapfile = false
@@ -47,4 +47,3 @@ vim.opt.colorcolumn = "80,120"
 -- "unnamed" => Windows,MacOS
 -- "unnamedplus" => "Linux"
 --vim.opt.clipboard = "unnamed,unnamedplus"
-

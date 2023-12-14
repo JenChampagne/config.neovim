@@ -1,4 +1,3 @@
 local sidebar = require("sidebar-nvim")
 
-sidebar.setup({open = true})
-
+sidebar.setup({ open = true })
