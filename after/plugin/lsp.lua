@@ -35,7 +35,27 @@ lsp_zero.format_on_save({
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = {'tsserver', 'rust_analyzer', 'eslint'},
+    ensure_installed = {
+        'rust_analyzer',
+        'tsserver',
+        'eslint',
+        'lua_ls',
+        'bashls',
+        'dockerls',
+        'docker_compose_language_service',
+        'angularls',
+        'htmx',
+        'jsonls',
+        'marksman', -- markdown
+        'spectral', -- openapi
+        'openscad_lsp',
+        'sqlls',
+        'taplo',   -- toml
+        'tailwindcss',
+        'volar',   -- vue
+        'yamlls',
+        'lemminx', -- xml
+    },
     handlers = {
         lsp_zero.default_setup,
         lua_ls = function()
