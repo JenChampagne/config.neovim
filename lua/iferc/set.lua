@@ -11,6 +11,10 @@ vim.opt.expandtab = true
 
 vim.opt.smartindent = true
 
+-- Visualize irregular spaces such as tabs or spaces after end of line.
+vim.opt.list = true
+vim.opt.listchars = "tab:»·,trail:·,nbsp:·"
+
 -- Keep word wrapping off by default.
 -- To toggle on demand, run the command `:set wrap!`. 
 vim.opt.wrap = false
