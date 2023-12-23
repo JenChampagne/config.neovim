@@ -13,21 +13,59 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    --  "folke/which-key.nvim",
-    --  { "folke/neoconf.nvim", cmd = "Neoconf" },
-    --  "folke/neodev.nvim",
+    -- Various utility functions including async coroutines.
+    {
+        'nvim-lua/plenary.nvim',
+        version = '0.1.4',
+    },
 
-    'nvim-lua/plenary.nvim',
+    -- Modal that displays keybind information on incomplete keybind combos.
+    {
+        "folke/which-key.nvim",
+        version = '0.6.0',
+        event = "VeryLazy",
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end,
+    },
 
-    'gennaro-tedesco/nvim-peekup',
+    -- LSP for neovim Lua scripts. Does not affect other Lua code.
+    {
+        'folke/neodev.nvim',
+        version = '2.5.2',
+        opts = {},
+    },
 
+    -- Highly extensible list model with built-in file search features.
     {
         'nvim-telescope/telescope.nvim',
         version = '0.1.5',
-        dependencies = { 'nvim-lua/plenary.nvim' }
+        dependencies = { 'nvim-lua/plenary.nvim' },
     },
 
-    { 'mg979/vim-visual-multi',          branch = 'master' },
+    -- Popup modal listing all registers contents.
+    -- Keybind `""`: Opens modal.
+    {
+        'gennaro-tedesco/nvim-peekup',
+        version = '0.1.1',
+    },
+
+    -- Precise multi-select similar to Ctrl+D in VSCode.
+    -- Keybind `<C-n>`: from normal mode will select current word,
+    -- and uses current selection from visual mode.
+    -- Next keybinds:
+    --   `n`: get next occurrence
+    --   `N`: get previous occurrence
+    --   `[`: select next cursor
+    --   `]`: select previous cursor
+    --   `q`: skip current cursor and get last used next/prev occurrence
+    --   `Q`: remove current cursor/selection
+    -- Then start insert mode with one of `i`/`I`/`a`/`A`.
+    {
+        'mg979/vim-visual-multi',
+        branch = 'master',
+    },
 
     -- themes
     'lewpoly/sherbet.nvim',
