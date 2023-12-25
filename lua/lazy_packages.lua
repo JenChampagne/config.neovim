@@ -142,6 +142,31 @@ require("lazy").setup({
         opts = {},
     },
 
+    -- Fancy git integration and ui.
+    {
+        'tpope/vim-fugitive',
+        keys = {
+            { "<leader>gs", vim.cmd.Git, mode = { "n" }, desc = "Open Fugitive" },
+        },
+    },
+
+    -- Left side gutter indicators of git status changes.
+    {
+        'airblade/vim-gitgutter',
+        lazy = false,
+        keys = {
+            { "<leader>gh", "<cmd>GitGutterStageHunk<CR>", mode = { "n" }, desc = "Stage Hunk" },
+        },
+    },
+
+    -- Keybind for copying a URL to a file and line of a remote git repository.
+    {
+        'linrongbin16/gitlinker.nvim',
+        config = function()
+            require('gitlinker').setup()
+        end,
+    },
+
     -- Highly extensible list model with built-in file search features.
     {
         'nvim-telescope/telescope.nvim',
@@ -192,7 +217,6 @@ require("lazy").setup({
     },
     -- 'theprimeagen/refactoring.nvim',
     'mbbill/undotree',
-    'tpope/vim-fugitive',
     {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -224,16 +248,8 @@ require("lazy").setup({
     },
 
     'sidebar-nvim/sidebar.nvim',
-    'airblade/vim-gitgutter',
 
     -- 'boxofrox/neovim-scorched-earth',
-
-    {
-        'linrongbin16/gitlinker.nvim',
-        config = function()
-            require('gitlinker').setup()
-        end,
-    },
 
     {
         'VonHeikemen/lsp-zero.nvim',
