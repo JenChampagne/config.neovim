@@ -31,6 +31,97 @@ require("lazy").setup({
         end,
     },
 
+    -- Tree-sitter AST syntax parsing library for plugins and highlighting.
+    {
+        'nvim-treesitter/nvim-treesitter',
+        build = ':TSUpdate',
+        config = function()
+            require('nvim-treesitter.configs').setup({
+                modules = {},
+                -- A list of parser names, or "all".
+                ensure_installed = {
+                    -- General plain text data file types
+                    "csv",
+                    "json",
+                    "json5",
+                    "toml",
+                    "yaml",
+
+                    -- Web
+                    "http",
+                    "html",
+                    "css",
+                    "javascript",
+                    "typescript",
+
+                    -- Server
+                    "bash",
+                    "cmake",
+                    "make",
+                    "dockerfile",
+                    "ssh_config",
+
+                    -- Git
+                    "git_config",
+                    "git_rebase",
+                    "gitattributes",
+                    "gitcommit",
+                    "gitignore",
+
+                    -- Compiled languages
+                    "c",
+                    "cpp",
+                    "lua",
+                    "ocaml",
+                    "rust",
+                    "sql",
+
+                    -- Meta
+                    "diff",
+                    "llvm",
+                    "regex",
+                    "vim",
+                    "vimdoc",
+                },
+
+                -- Install `ensure_installed` parsers synchronously.
+                sync_install = false,
+
+                -- Automatically install missing parsers when entering buffer.
+                --! Set to false if you don't have `tree-sitter` CLI installed.
+                auto_install = true,
+
+                -- List of parsers to ignore installing, or "all".
+                ignore_install = {},
+
+                highlight = {
+                    enable = true,
+
+                    -- Disable languages from syntax highlighting.
+                    --disable = { "c", "rust" },
+
+                    -- Disable function for slow highlighting for large files.
+                    disable = function(_, buf) -- `_` is language of buffer
+                        local max_filesize = 100 * 1024
+                        local ok, stats = pcall(
+                            vim.loop.fs_stat,
+                            vim.api.nvim_buf_get_name(buf)
+                        )
+                        if ok and stats and stats.size > max_filesize then
+                            return true
+                        end
+                    end,
+
+                    -- Instead of true it can also be a list of languages.
+                    additional_vim_regex_highlighting = false,
+                },
+            })
+        end,
+    },
+
+    -- Playground to visualize the Abstract Syntax Tree.
+    'nvim-treesitter/playground',
+
     -- LSP for neovim Lua scripts. Does not affect other Lua code.
     {
         'folke/neodev.nvim',
@@ -89,8 +180,6 @@ require("lazy").setup({
         end,
     },
 
-    { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
-    'nvim-treesitter/playground',
     {
         'theprimeagen/harpoon',
         branch = 'harpoon2',
@@ -141,19 +230,6 @@ require("lazy").setup({
             require('gitlinker').setup()
         end,
     },
-
-    -- {
-    --     'giusgad/pets.nvim',
-    --     dependencies = {
-    --         'giusgad/hologram.nvim',
-    --         'MunifTanjim/nui.nvim',
-    --     },
-    --     config = function()
-    --         require('pets').setup({
-    --             -- your options here
-    --         })
-    --     end,
-    -- },
 
     {
         'VonHeikemen/lsp-zero.nvim',
