@@ -81,7 +81,13 @@ require("lazy").setup({
     'rebelot/kanagawa.nvim',
     'AlexvZyl/nordic.nvim',
 
-    'Djancyp/better-comments.nvim',
+    {
+        'iferc/better-comments.nvim',
+        dependencies = { { 'nvim-treesitter/nvim-treesitter' } },
+        config = function()
+            require('better-comments').setup()
+        end,
+    },
 
     { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
     'nvim-treesitter/playground',
