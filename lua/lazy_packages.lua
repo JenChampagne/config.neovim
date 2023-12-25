@@ -119,8 +119,21 @@ require("lazy").setup({
         end,
     },
 
+    -- todo: Unsure if this is needed. To confirm.
+    'nvim-treesitter/nvim-treesitter-context',
+
     -- Playground to visualize the Abstract Syntax Tree.
     'nvim-treesitter/playground',
+
+    -- Special color highlighting for comments that fit certain patterns,
+    -- like for todos, warnings, and ticket ids.
+    {
+        'iferc/better-comments.nvim',
+        dependencies = { { 'nvim-treesitter/nvim-treesitter' } },
+        config = function()
+            require('better-comments').setup()
+        end,
+    },
 
     -- LSP for neovim Lua scripts. Does not affect other Lua code.
     {
@@ -167,18 +180,10 @@ require("lazy").setup({
         branch = 'master',
     },
 
-    -- themes
+    -- Themes
     'lewpoly/sherbet.nvim',
     'rebelot/kanagawa.nvim',
     'AlexvZyl/nordic.nvim',
-
-    {
-        'iferc/better-comments.nvim',
-        dependencies = { { 'nvim-treesitter/nvim-treesitter' } },
-        config = function()
-            require('better-comments').setup()
-        end,
-    },
 
     {
         'theprimeagen/harpoon',
@@ -197,7 +202,6 @@ require("lazy").setup({
             -- refer to the configuration section below
         },
     },
-    'nvim-treesitter/nvim-treesitter-context',
     --  'folke/zen-mode.nvim',
     --  'github/copilot.vim',
     -- 'eandrju/cellular-automaton.nvim',
