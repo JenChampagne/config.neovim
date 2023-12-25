@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
         "git",
@@ -46,6 +47,14 @@ require("lazy").setup({
 
     -- Popup modal listing all registers contents.
     -- Keybind `""`: Opens modal.
+    -- Next keybinds:
+    --   `<C-j>`: scroll down
+    --   `<C-k>`: scroll up
+    --   `<Up>`: move up registers list
+    --   `<Down>`: move down registers list
+    --   `"x`: empty all registers
+    -- Then hitting any other character will select and copy from
+    -- the chosen register into the corresponding * register.
     {
         'gennaro-tedesco/nvim-peekup',
         version = '0.1.1',
