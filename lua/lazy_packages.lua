@@ -240,6 +240,12 @@ require("lazy").setup({
     },
 
     -- Themes
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    },
     'lewpoly/sherbet.nvim',
     'rebelot/kanagawa.nvim',
     'AlexvZyl/nordic.nvim',
