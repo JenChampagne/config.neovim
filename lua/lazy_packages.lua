@@ -135,6 +135,26 @@ require("lazy").setup({
         end,
     },
 
+    -- LSP server management. See configurations in `after/plugins/lsp.lua`.
+    {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v3.x',
+        dependencies = {
+            --- Uncomment these if you want to manage LSP servers from neovim
+            { 'williamboman/mason.nvim' },
+            { 'williamboman/mason-lspconfig.nvim' },
+
+            -- LSP Support
+            { 'neovim/nvim-lspconfig' },
+            { 'simrat39/rust-tools.nvim' },
+
+            -- Autocompletion
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'L3MON4D3/LuaSnip' },
+        }
+    },
+
     -- LSP for neovim Lua scripts. Does not affect other Lua code.
     {
         'folke/neodev.nvim',
@@ -250,23 +270,4 @@ require("lazy").setup({
     'sidebar-nvim/sidebar.nvim',
 
     -- 'boxofrox/neovim-scorched-earth',
-
-    {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v3.x',
-        dependencies = {
-            --- Uncomment these if you want to manage LSP servers from neovim
-            { 'williamboman/mason.nvim' },
-            { 'williamboman/mason-lspconfig.nvim' },
-
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' },
-            { 'simrat39/rust-tools.nvim' },
-
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },
-            { 'hrsh7th/cmp-nvim-lsp' },
-            { 'L3MON4D3/LuaSnip' },
-        }
-    },
 })
