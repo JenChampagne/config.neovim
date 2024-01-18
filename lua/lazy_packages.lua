@@ -185,6 +185,20 @@ require("lazy").setup({
         config = function()
             require('gitlinker').setup()
         end,
+        keys = {
+            { "<leader>gul", "<cmd>GitLink<CR>",        mode = { "n", "v" } },
+            { "<leader>gUl", "<cmd>GitLink!<CR>",       mode = { "n", "v" } },
+            { "<leader>gub", "<cmd>GitLink blame<CR>",  mode = { "n", "v" } },
+            { "<leader>gUb", "<cmd>GitLink! blame<CR>", mode = { "n", "v" } },
+        },
+    },
+
+    -- Keybind for copying a URL to a file and line of a remote git repository.
+    {
+        'lewis6991/gitsigns.nvim',
+        config = function()
+            require('gitsigns').setup()
+        end,
     },
 
     -- Highly extensible list model with built-in file search features.
