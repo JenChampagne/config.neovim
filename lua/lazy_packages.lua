@@ -319,6 +319,9 @@ require("lazy").setup({
         },
         opts = {
             filesystem = {
+                filtered_items = {
+                    hide_dotfiles = false,
+                },
                 hijack_netrw_behavior = "open_default",
             },
             window = {
@@ -364,7 +367,14 @@ require("lazy").setup({
         },
     },
 
-    'sidebar-nvim/sidebar.nvim',
+    {
+        'sidebar-nvim/sidebar.nvim',
+        opts = {
+            files = {
+                show_hidden = true,
+            },
+        },
+    },
 
     -- 'boxofrox/neovim-scorched-earth',
 })
