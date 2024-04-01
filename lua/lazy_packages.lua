@@ -146,7 +146,7 @@ require("lazy").setup({
 
             -- LSP Support
             { 'neovim/nvim-lspconfig' },
-            { 'simrat39/rust-tools.nvim' },
+            { 'mrcjkb/rustaceanvim' },
 
             -- Autocompletion
             { 'hrsh7th/nvim-cmp' },
@@ -351,7 +351,11 @@ require("lazy").setup({
     -- 'eandrju/cellular-automaton.nvim',
     'laytan/cloak.nvim',
     'mfussenegger/nvim-dap',
-    'simrat39/rust-tools.nvim',
+    { 'rust-lang/rust.vim' },
+    {
+        'mrcjkb/rustaceanvim',
+        ft = { 'rust' },
+    },
     'taybart/b64.nvim',
     --'phelipetls/jsonpath.nvim',
 
