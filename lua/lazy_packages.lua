@@ -17,13 +17,13 @@ require("lazy").setup({
     -- Various utility functions including async coroutines.
     {
         'nvim-lua/plenary.nvim',
-        version = '0.1.4',
+        --version = '0.1.4',
     },
 
     -- Modal that displays keybind information on incomplete keybind combos.
     {
         "folke/which-key.nvim",
-        version = '0.6.0',
+        --version = '1.6.0',
         event = "VeryLazy",
         init = function()
             vim.o.timeout = true
@@ -175,7 +175,7 @@ require("lazy").setup({
     -- LSP for neovim Lua scripts. Does not affect other Lua code.
     {
         'folke/neodev.nvim',
-        version = '2.5.2',
+        --version = '2.5.2',
         opts = {},
     },
 
@@ -221,7 +221,7 @@ require("lazy").setup({
     -- Highly extensible list model with built-in file search features.
     {
         'nvim-telescope/telescope.nvim',
-        version = '0.1.5',
+        --version = '0.1.5',
         dependencies = { 'nvim-lua/plenary.nvim' },
     },
 
@@ -237,7 +237,7 @@ require("lazy").setup({
     -- the chosen register into the corresponding * register.
     {
         'gennaro-tedesco/nvim-peekup',
-        version = '0.1.1',
+        --version = '0.1.1',
     },
 
     -- Precise multi-select similar to Ctrl+D in VSCode.
@@ -317,7 +317,6 @@ require("lazy").setup({
 
     {
         'akinsho/bufferline.nvim',
-        version = "*",
         dependencies = 'nvim-tree/nvim-web-devicons',
         config = function()
             vim.opt.termguicolors = true

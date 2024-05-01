@@ -8,9 +8,9 @@ lsp_zero.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
     -- TODO: look into supporting end of line inlay hints like rust-tools did.
-    if vim.lsp.inlay_hint then
-        vim.lsp.inlay_hint.enable(bufnr, true)
-    end
+    --if vim.lsp.inlay_hint then
+    --    vim.lsp.inlay_hint.enable(bufnr, true)
+    --end -- todo: broken in favour of `enable(bufnr, filter)
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
