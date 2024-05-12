@@ -370,6 +370,11 @@ require("lazy").setup({
     { 'rust-lang/rust.vim' },
     {
         'mrcjkb/rustaceanvim',
+        -- rustaceanvim is using an unpublished api for inlay hints,
+        -- and that api has just changed, making this pluging break.
+        -- This is the last commit prior to enabling inlay hints,
+        -- but this is only meant to abe a temporary solution.
+        commit = 'dd4d5d8d1313f0bb343af90e2432ad2f2a9fedaf',
         ft = { 'rust' },
     },
     'taybart/b64.nvim',
@@ -397,4 +402,5 @@ require("lazy").setup({
     },
 
     -- 'boxofrox/neovim-scorched-earth',
+    --'rickhowe/diffchar.vim',
 })
