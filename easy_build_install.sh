@@ -1,15 +1,16 @@
-git submodule update --init
+REPODIR="$(cd "$(dirname "$0")"; pwd -P)"
+cd "$REPODIR"
 
+git submodule update --init
 cd neovim
 
-logfile="../ebi_$(date -u +%FT%H-%M-%SZ)_"
-
 read -p "Update to latest commit of neovim? " confirm
-
 if [[ "$confirm" == [yY] || "$config" == [yY][eE][sS] ]]; then
     echo "Pulling latest commit from GitHub."
     git checkout -d origin/master
 fi
+
+logfile="../ebi_$(date -u +%FT%H-%M-%SZ)_"
 
 echo "Cleaning past build files."
 make distclean >"${logfile}clean.log"
