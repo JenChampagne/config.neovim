@@ -44,6 +44,9 @@ lsp_zero.format_on_save({
 })
 
 require('mason').setup({})
+require("mason-nvim-dap").setup({
+    ensure_installed = { "codelldb" }
+})
 require('mason-lspconfig').setup({
     ensure_installed = {
         'tsserver',
