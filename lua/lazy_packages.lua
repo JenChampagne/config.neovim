@@ -184,7 +184,7 @@ require("lazy").setup({
     {
         'tpope/vim-fugitive',
         keys = {
-            { "<leader>gs", vim.cmd.Git, mode = { "n" }, desc = "Open Fugitive" },
+            { "<leader>gs", function() vim.cmd.Git() end, mode = { "n" }, desc = "Open Fugitive" },
         },
     },
 
