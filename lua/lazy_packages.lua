@@ -457,6 +457,15 @@ require("lazy").setup({
         },
     },
 
-    -- 'boxofrox/neovim-scorched-earth',
-    --'rickhowe/diffchar.vim',
+    -- Conflict marker resolution plugin that also highlights diff regions.
+    -- Regions are blocks of `<<<<<<<\n=======\n>>>>>>>`.
+    -- Keys:
+    --   `co` => keep ours (between <<<<<<< and =======)
+    --   `ct` => keep theirs (between ======= and >>>>>>>)
+    --   `cb` => keep both (between <<<<<<< and ======= then between ======= and >>>>>>>)
+    --   `cB` => keep both (between ======= and >>>>>>> then between <<<<<<< and =======)
+    --   `cn` => keep none
+    --   `[x` => goto next conflict
+    --   `]x` => goto previous conflict
+    { 'rhysd/conflict-marker.vim' },
 })
