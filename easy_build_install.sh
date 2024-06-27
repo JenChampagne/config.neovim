@@ -7,6 +7,7 @@ cd neovim
 read -p "Update to latest commit of neovim? " confirm
 if [[ "$confirm" == [yY] || "$config" == [yY][eE][sS] ]]; then
     echo "Pulling latest commit from GitHub."
+    git fetch
     git checkout -d origin/master
 fi
 
