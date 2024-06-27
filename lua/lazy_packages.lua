@@ -374,6 +374,7 @@ require("lazy").setup({
             "theHamsta/nvim-dap-virtual-text",
             "nvim-neotest/nvim-nio",
             "williamboman/mason.nvim",
+            "nvim-telescope/telescope-dap.nvim",
         },
         config = function()
             local dap = require "dap"
@@ -441,7 +442,7 @@ require("lazy").setup({
         dependencies = { "nvim-telescope/telescope.nvim" },
         config = function()
             require("textcase").setup({})
-            require("telescope").load_extension("textcase")
+            require("telescope").load_extension("textcase").load_extension('dap')
         end,
         keys = {
             { "<leader>cc", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "v" }, desc = "Telescope" },
