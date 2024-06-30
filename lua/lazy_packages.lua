@@ -220,11 +220,6 @@ require("lazy").setup({
                                 vim.cmd("wincmd J")
                                 vim.cmd("resize 8")
 
-                                -- Reset position so that branch is shown,
-                                -- but cursor is at first git file.
-                                vim.cmd("1")
-                                vim.cmd("4")
-
                                 vim.fn.win_gotoid(current_win)
                             end, 10)
                         end
