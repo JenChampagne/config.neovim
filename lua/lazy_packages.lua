@@ -186,6 +186,52 @@ require("lazy").setup({
         keys = {
             { "<leader>gs", function() vim.cmd.Git() end, mode = { "n" }, desc = "Open Fugitive" },
         },
+        config = function()
+            -- Automatically move git status window to bottom with small height.
+            --
+            -- When the commit message window is closing, something in fugitive
+            -- conflicts with running vim.cmd("wincmd J") which causes the whole
+            -- commit to be cancelled.
+            --
+            -- If there is a way to only run this move and resize once when the
+            -- git status window is created, this would probably not be an issue.
+            -- Until then, defer_fn works to asynchronously move the window after
+            -- the conflict has passed.
+            vim.api.nvim_create_autocmd({ "BufRead" }, {
+                pattern = "*",
+                callback = function()
+                    local bufnum = vim.api.nvim_get_current_buf()
+                    local bufname = vim.api.nvim_buf_get_name(bufnum)
+
+                    if vim.fn.expand("%:t") == "COMMIT_EDITMSG" then
+                        vim.cmd("resize 24")
+                    elseif string.match(bufname, "^fugitive:") then
+                        local bufhead = vim.api.nvim_buf_get_text(bufnum, 0, 0, 0, 5, {})
+
+                        if bufhead[1] == "Head:" then
+                            local winnum = vim.api.nvim_get_current_win()
+                            local winnr = vim.api.nvim_win_get_number(winnum)
+
+                            vim.defer_fn(function()
+                                local current_win = vim.fn.win_getid()
+
+                                -- Go to the target window to perform its move.
+                                vim.cmd(winnr .. "wincmd w")
+                                vim.cmd("wincmd J")
+                                vim.cmd("resize 8")
+
+                                -- Reset position so that branch is shown,
+                                -- but cursor is at first git file.
+                                vim.cmd("1")
+                                vim.cmd("4")
+
+                                vim.fn.win_gotoid(current_win)
+                            end, 10)
+                        end
+                    end
+                end,
+            })
+        end,
     },
 
     -- Left side gutter indicators of git status changes.
