@@ -218,7 +218,7 @@ require("lazy").setup({
                                 -- Go to the target window to perform its move.
                                 vim.cmd(winnr .. "wincmd w")
                                 vim.cmd("wincmd J")
-                                vim.cmd("resize 8")
+                                vim.cmd("resize 12")
 
                                 vim.fn.win_gotoid(current_win)
                             end, 10)
