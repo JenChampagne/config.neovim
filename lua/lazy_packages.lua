@@ -14,6 +14,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    -- Clipboard over SSH with OSC52 control codes support.
+    {
+        'ojroques/nvim-osc52',
+        config = function()
+            require('osc52').setup({ tmux_passthrough = true })
+        end
+    },
+
     -- Various utility functions including async coroutines.
     {
         'nvim-lua/plenary.nvim',
