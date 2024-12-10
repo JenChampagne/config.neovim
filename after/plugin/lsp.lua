@@ -38,7 +38,7 @@ lsp_zero.format_on_save({
     format_opts = { async = false, timeout_ms = 4000 },
     servers = {
         ['lua_ls'] = { 'lua' },
-        ['tsserver'] = { 'javascript', 'typescript' },
+        ['ts_ls'] = { 'javascript', 'typescript' },
         ['rust-analyzer'] = { 'rust' },
     }
 })
@@ -49,23 +49,20 @@ require("mason-nvim-dap").setup({
 })
 require('mason-lspconfig').setup({
     ensure_installed = {
-        'tsserver',
-        'eslint',
+        'ts_ls',
         'lua_ls',
         'bashls',
         'dockerls',
         'docker_compose_language_service',
-        'angularls',
-        'htmx',
         'jsonls',
         'marksman', -- markdown
         'spectral', -- openapi
-        'openscad_lsp',
         'sqlls',
-        'taplo',   -- toml
+        'taplo',    -- toml
         'tailwindcss',
-        'volar',   -- vue
+        'volar',    -- vue
         'yamlls',
+        'helm_ls',
         'lemminx', -- xml
     },
     handlers = {
