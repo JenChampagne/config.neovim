@@ -23,10 +23,8 @@ require("lazy").setup({
     },
 
     -- Various utility functions including async coroutines.
-    {
-        'nvim-lua/plenary.nvim',
-        --version = '0.1.4',
-    },
+    { 'nvim-lua/plenary.nvim' },
+    { 'nvim-tree/nvim-web-devicons', lazy = true },
 
     -- Modal that displays keybind information on incomplete keybind combos.
     {
