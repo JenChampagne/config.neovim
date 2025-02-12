@@ -24,7 +24,11 @@ require("lazy").setup({
 
     -- Various utility functions including async coroutines.
     { 'nvim-lua/plenary.nvim' },
-    { 'nvim-tree/nvim-web-devicons', lazy = true },
+    {
+        'nvim-tree/nvim-web-devicons',
+        commit = "37334ad", -- later commits throw errors in sidebar plugin.
+        lazy = true,
+    },
 
     -- Modal that displays keybind information on incomplete keybind combos.
     {
@@ -525,6 +529,7 @@ require("lazy").setup({
 
     {
         'sidebar-nvim/sidebar.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
         opts = {
             files = {
                 show_hidden = true,
@@ -543,4 +548,13 @@ require("lazy").setup({
     --   `[x` => goto next conflict
     --   `]x` => goto previous conflict
     { 'rhysd/conflict-marker.vim' },
+
+    {
+        'ts-jump.nvim',
+        dir = "~/dev/ts-jump.nvim",
+        dev = true,
+        config = function()
+            require('ts-jump').setup()
+        end,
+    },
 })
