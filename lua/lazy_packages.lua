@@ -342,9 +342,9 @@ require("lazy").setup({
         priority = 1000,
         opts = {},
     },
-    'lewpoly/sherbet.nvim',
     'rebelot/kanagawa.nvim',
     'AlexvZyl/nordic.nvim',
+    'EdenEast/nightfox.nvim',
 
     {
         'nvim-lualine/lualine.nvim',
