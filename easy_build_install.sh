@@ -13,9 +13,6 @@ fi
 
 logfile="../ebi_$(date -u +%FT%H-%M-%SZ)_"
 
-echo "Cleaning past build files."
-make distclean >"${logfile}clean.log"
-
 echo "Building dependencies."
 make deps >"${logfile}dependencies.log"
 
@@ -28,3 +25,6 @@ fi
 
 echo "Install application for system-wide use."
 sudo make install >"${logfile}setup.log"
+
+echo "Cleaning past build files."
+sudo make distclean >"${logfile}clean.log"
