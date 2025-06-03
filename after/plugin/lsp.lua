@@ -60,7 +60,7 @@ require('mason-lspconfig').setup({
         'sqlls',
         'taplo',    -- toml
         'tailwindcss',
-        'volar',    -- vue
+        'vuels',
         'yamlls',
         'helm_ls',
         'lemminx', -- xml
