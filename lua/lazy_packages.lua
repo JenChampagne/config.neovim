@@ -549,12 +549,12 @@ require("lazy").setup({
     --   `]x` => goto previous conflict
     { 'rhysd/conflict-marker.vim' },
 
-    {
-        'ts-jump.nvim',
-        dir = "~/dev/ts-jump.nvim",
-        dev = true,
-        config = function()
-            require('ts-jump').setup()
-        end,
-    },
+    -- {
+    --     'ts-jump.nvim',
+    --     dir = "~/dev/ts-jump.nvim",
+    --     dev = true,
+    --     config = function()
+    --         require('ts-jump').setup()
+    --     end,
+    -- },
 })
