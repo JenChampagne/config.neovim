@@ -581,7 +581,7 @@ require("lazy").setup({
             providers = {
                 lmstudio = {
                     __inherited_from = "openai",
-                    endpoint = "http://localhost:1234/api/v0",
+                    endpoint = "http://localhost:2143/api/v0",
                     model = "mistralai/devstral-small-2507",
                     api_key_name = 'SHELL',
                     timeout = 30000, -- Timeout in milliseconds
